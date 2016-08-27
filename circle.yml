@@ -4,7 +4,7 @@ machine:
 dependencies:
   post:
     - pear config-set auto_discover 1
-    - pear install pear.phpunit.de/PHPUnit-3.7.32
+    - pear install pear.phpunit.de/PHPUnit-3.7.38
     - echo "<?php
         class DATABASE_CONFIG {
         public \$test = array(
