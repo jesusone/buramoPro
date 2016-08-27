@@ -1,0 +1,50 @@
+.main-menu {
+  max-width: 100%;
+  height: 50px; }
+  .main-menu ul li {
+    display: inline-block;
+    padding-right: 30px; }
+
+#sidebar ul li {
+  padding-top: 20px; }
+
+<<<<<<< HEAD
+.bur-fortune-telling .subject {
+  background: url(../img/fortunes/bgTtl.gif);
+  padding: 15px;
+  font-size: 30px; }
+.bur-fortune-telling .bur-freec-data-lists {
+  margin-top: 20px; }
+  .bur-fortune-telling .bur-freec-data-lists .bur-freec-item {
+    border-top: 2px dotted #f7f7f7; }
+    .bur-fortune-telling .bur-freec-data-lists .bur-freec-item .bur-freec-content-wrapper {
+      margin-bottom: 50px; }
+      .bur-fortune-telling .bur-freec-data-lists .bur-freec-item .bur-freec-content-wrapper .for-comment-info {
+        margin-top: 30px; }
+        .bur-fortune-telling .bur-freec-data-lists .bur-freec-item .bur-freec-content-wrapper .for-comment-info ul {
+          float: right;
+          list-style: none; }
+          .bur-fortune-telling .bur-freec-data-lists .bur-freec-item .bur-freec-content-wrapper .for-comment-info ul li {
+            display: inline-block; }
+  .bur-fortune-telling .bur-freec-data-lists .bur-freec-fortune {
+    background: #f7f7f7;
+    padding: 20px; }
+    .bur-fortune-telling .bur-freec-data-lists .bur-freec-fortune .bur-freec-fortune-header .bur-freec-fortune-avatar {
+      float: left;
+      width: 100px; }
+      .bur-fortune-telling .bur-freec-data-lists .bur-freec-fortune .bur-freec-fortune-header .bur-freec-fortune-avatar img {
+        max-width: 70px; }
+=======
+/* =========  start fortune detail ====== */
+.fortune-detail-warpers .for-profile-detail {
+  margin-top: 50px; }
+  .fortune-detail-warpers .for-profile-detail > div {
+    float: left; }
+    .fortune-detail-warpers .for-profile-detail > div.for-logo a img {
+      max-width: 105px;
+      margin-right: 20px; }
+.fortune-detail-warpers .listMenu {
+  margin-top: 30px; }
+
+/* =========  end fortune detail ====== */
+>>>>>>> origin/ngulb/detail_fortune_25_8

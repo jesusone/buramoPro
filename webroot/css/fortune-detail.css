@@ -1,0 +1,12 @@
+/* =========  start fortune detail ====== */
+.fortune-detail-warpers .for-profile-detail {
+  margin-top: 50px; }
+  .fortune-detail-warpers .for-profile-detail > div {
+    float: left; }
+    .fortune-detail-warpers .for-profile-detail > div.for-logo a img {
+      max-width: 105px;
+      margin-right: 20px; }
+.fortune-detail-warpers .listMenu {
+  margin-top: 30px; }
+
+/* =========  end fortune detail ====== */

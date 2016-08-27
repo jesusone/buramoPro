@@ -1,0 +1,39 @@
+.bur-fortune-telling {
+  .subject {
+    background: url(../img/fortunes/bgTtl.gif) ;
+    padding:15px;
+    font-size: 30px;
+  }
+  .bur-freec-data-lists {
+    margin-top: 20px;
+    .bur-freec-item {
+      border-top: 2px dotted #f7f7f7;
+      .bur-freec-content-wrapper {
+        margin-bottom: 50px;
+        .for-comment-info {
+          margin-top: 30px;
+          ul {
+            float: right;
+            list-style: none;
+            li {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+    .bur-freec-fortune {
+      background:#f7f7f7;
+      padding: 20px;
+      .bur-freec-fortune-header {
+        .bur-freec-fortune-avatar {
+          float: left;
+          width: 100px;
+          img {
+            max-width: 70px;
+          }
+        }
+      }
+    }
+  }
+}

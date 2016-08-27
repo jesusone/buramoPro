@@ -1,0 +1,8 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+/.idea/workspace.xml
+/.idea/*
+/buramoPro.iml
+/webroot/upload/avatar
