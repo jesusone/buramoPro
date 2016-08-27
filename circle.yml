@@ -15,7 +15,7 @@ dependencies:
           'database' => 'circle_test',
           'prefix' => ''
         );
-        }" > app/Config/app.php
+        }" > config/app.php
 test:
   override:
     - php ./app/Console/cake.php test app AllModel
