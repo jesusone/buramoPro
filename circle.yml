@@ -11,9 +11,9 @@ dependencies:
           'datasource' => 'Database/Mysql',
           'persistent' => false,
           'host' => '127.0.0.1',
-          'login' => 'ubuntu',
+          'login' => 'root',
           'password' => '',
-          'database' => 'circle_test',
+          'database' => 'bramo_fortune',
           'prefix' => ''
         );
         }" > app/Config/database.php
