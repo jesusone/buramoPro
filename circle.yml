@@ -18,4 +18,4 @@ dependencies:
         }" > config/app.php
 test:
   override:
-    - php ./app/Console/cake.php test app AllModel
+    - php src/Console/cake.php test app AllModel
