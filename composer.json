@@ -11,7 +11,9 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "satthi/csv-combine-plugin-for-cakephp": "*",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "phpmd/phpmd" : "2.*",
+        "squizlabs/php_codesniffer": "2.*"
     },
     "require-dev": {
         "psy/psysh": "@stable",
