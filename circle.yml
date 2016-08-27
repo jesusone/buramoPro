@@ -1,9 +1,29 @@
 machine:
-  php:
-    version: 7.0.8
-    dependencies:
+  timezone: Asia/Tokyo
+  hosts: 127.0.0.1
+  php: 7.0.8
+#environment:
+
+dependencies:
   pre:
-    - cp config/custom.ini /opt/circleci/php/$(phpenv global)/etc/conf.d/
-    test:
-  override:
-    - ./my_testing_script.sh
+    - sudo pip install --upgrade pip
+    - sudo pip install selenium
+    - cp ~/selenium-ci-cakephp/apache_setting /etc/apache2/sites-available
+    - a2ensite apache_setting
+    - sudo service apache2 restart
+#  override:
+#
+#  pre:
+#
+
+#database:
+#  override:
+#
+
+test:
+  pre:
+    - echo "-----start test-----"
+#  override:
+#    - python
+  post:
+    - echo "-----end test-----"
