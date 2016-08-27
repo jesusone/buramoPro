@@ -1,29 +1,29 @@
-machine:
-  timezone: Asia/Tokyo
-  hosts: 127.0.0.1
-  php: 7.0.8
-#environment:
+ machine:
+  services:
+    - rabbitmq-server
+    - redis
+    - mysql
+
+  environment:
+    AMQP_URL: amqp://localhost:5672
+
+general:
+  build_dir: app
 
 dependencies:
   pre:
-    - sudo pip install --upgrade pip
-    - sudo pip install selenium
-    - cp ~/selenium-ci-cakephp/apache_setting /etc/apache2/sites-available
-    - a2ensite apache_setting
-    - sudo service apache2 restart
-#  override:
-#
-#  pre:
-#
+    - composer install --prefer-source --no-interaction
+    - mkdir -p $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/logs
+    - chmod 777 $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/logs
+    - cp -R $HOME/$CIRCLE_PROJECT_REPONAME/app/Config/CircleCi/Config/* $HOME/$CIRCLE_PROJECT_REPONAME/app/Config/
 
-#database:
-#  override:
-#
+database:
+  override:
+    - mysql -u root -e "create database buildserver_db"
+    - mysql -u root -e "create database buildserver_db_test"
+     - mysql -u root buildserver_db < $HOME/$CIRCLE_PROJECT_REPONAME/db_dumps/test_ab.sql
+    - ./Console/cake Migrations.migration run all
 
 test:
-  pre:
-    - echo "-----start test-----"
-#  override:
-#    - python
-  post:
-    - echo "-----end test-----"
+  override:
+    - ./Console/cake test app CustomTestSuit
