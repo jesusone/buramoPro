@@ -1,0 +1,36 @@
+##&nbsp;Cấu hình cho máy ảo test
+machine:
+#&nbsp;Cấu hình phiên bản php sử dụng
+php:
+version: 5.6.5
+ 
+#&nbsp;Cấu hình các biến môi trường
+environment:
+CIRCLE_ENV: testing
+APP_ENV: testing
+APP_KEY: lpivZFWb3A4xtCc6S4f3eSdE3jdP5hWm
+DB_HOST: 127.0.0.1
+DB_PORT: 3306
+DB_DATABASE: circle_test
+DB_USERNAME: ubuntu
+DB_PASSWORD:
+DB_SOCKET: /var/run/mysqld/mysqld.sock
+APP_DEBUG: false
+ 
+## Lệnh cài các thư viện cần thiết, import database mẫu, tạo file .env ...
+dependencies:
+pre:
+- wget http://sangplus.com/db.sql.gz
+- gunzip db.sql.gz
+- mysql circle_test &lt; db.sql
+- echo "memory_limit = 512M" &gt; ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
+post:
+- composer install --prefer-source --no-interaction
+- php artisan migrate
+ 
+## Cấu hình test
+test:
+override:
+- ./vendor/bin/phpcs --standard=phpcs.xml app/ -n
+- ./vendor/bin/phpmd app/ text phpmd.xml
+- ./vendor/bin/phpunit
