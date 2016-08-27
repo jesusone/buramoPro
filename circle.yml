@@ -1,6 +1,6 @@
 machine:
   php:
-    version: 5.5.11
+    version: 7.0.8
 dependencies:
   post:
     - pear config-set auto_discover 1
