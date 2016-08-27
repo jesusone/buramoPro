@@ -1,29 +1,22 @@
- machine:
-  services:
-    - rabbitmq-server
-    - redis
-    - mysql
-
-  environment:
-    AMQP_URL: amqp://localhost:5672
-
-general:
-  build_dir: app
-
+machine:
+  php:
+    version: 7.0.8
 dependencies:
-  pre:
-    - composer install --prefer-source --no-interaction
-    - mkdir -p $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/logs
-    - chmod 777 $HOME/$CIRCLE_PROJECT_REPONAME/app/tmp/logs
-    - cp -R $HOME/$CIRCLE_PROJECT_REPONAME/app/Config/CircleCi/Config/* $HOME/$CIRCLE_PROJECT_REPONAME/app/Config/
-
-database:
-  override:
-    - mysql -u root -e "create database buildserver_db"
-    - mysql -u root -e "create database buildserver_db_test"
-     - mysql -u root buildserver_db < $HOME/$CIRCLE_PROJECT_REPONAME/db_dumps/test_ab.sql
-    - ./Console/cake Migrations.migration run all
-
+  post:
+    - pear config-set auto_discover 1
+    - pear install pear.phpunit.de/PHPUnit-3.7.32
+    - echo "<?php
+        class DATABASE_CONFIG {
+        public \$test = array(
+          'datasource' => 'Database/Mysql',
+          'persistent' => false,
+          'host' => '127.0.0.1',
+          'login' => 'ubuntu',
+          'password' => '',
+          'database' => 'circle_test',
+          'prefix' => ''
+        );
+        }" > app/Config/database.php
 test:
   override:
-    - ./Console/cake test app CustomTestSuit
+    - php ./app/Console/cake.php test app AllModel
