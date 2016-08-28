@@ -17,5 +17,10 @@ dependencies:
         );
         }" > config/app.php
 test:
-  override:
-    - php bin/cake.php test app AllModel
+   override:
+    # phpcs circleci status
+    - ./vendor/bin/phpcs -n --standard=phpcs.xml
+    # phpmd
+    - ./vendor/bin/phpmd app text phpmd.xml
+    # phpunit
+    #- ./vendor/bin/phpunit
